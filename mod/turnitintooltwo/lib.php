@@ -1323,7 +1323,7 @@ function turnitintooltwo_getusers() {
     $secho = optional_param('sEcho', 1, PARAM_INT);
 
     $query = "SELECT tu.id AS id, tu.userid AS userid, tu.turnitin_uid AS turnitin_uid, tu.turnitin_utp AS turnitin_utp, ".
-             "mu.firstname AS firstname, mu.lastname AS lastname, mu.email AS email ".
+             "mu.firstname AS firstname, mu.lastname AS lastname, mu.email AS email, mu.username as username ".
              "FROM {turnitintooltwo_users} tu ".
              "LEFT JOIN {user} mu ON tu.userid = mu.id ";
 
@@ -1343,7 +1343,7 @@ function turnitintooltwo_getusers() {
 
         $aadata = array($checkbox);
         $user->turnitin_uid = ($user->turnitin_uid == 0) ? '' : $user->turnitin_uid;
-        $userdetails = array($user->turnitin_uid, format_string($user->lastname), format_string($user->firstname), $pseudoemail);
+        $userdetails = array($user->turnitin_uid, format_string($user->lastname), format_string($user->firstname), $pseudoemail, format_string($user->username));
         $return["aaData"][] = array_merge($aadata, $userdetails);
     }
     $return["sEcho"] = $secho;
