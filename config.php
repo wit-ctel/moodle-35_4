@@ -648,6 +648,8 @@ $CFG->admin = 'admin';
 // Example:
 //   $CFG->forced_plugin_settings = array('pluginname'  => array('settingname' => 'value', 'settingname_locked' => true, 'settingname_adv' => true));
 //
+$CFG->auth = 'ldap';
+//
 //=========================================================================
 // 9. PHPUNIT SUPPORT
 //=========================================================================
